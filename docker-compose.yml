@@ -1,0 +1,14 @@
+version: "3"
+services:
+  selenium-python:
+    image: upwork-scrappy
+    container_name: scrappy__
+    build:
+      context: .
+    volumes:
+      - ./links.txt:/app/links.txt
+      - ./output:/app/output
+    command: ["python3", "-u", "scrapper.py"]
+    # Resource limits
+    mem_limit: 16g # Limit memory to 8 GB
+    cpus: 8 # Allocate 4 CPU cores
